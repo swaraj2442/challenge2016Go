@@ -39,3 +39,81 @@ To submit a solution, fork this repo and send a Pull Request on Github.
 For any questions or clarifications, raise an issue on this repo and we'll answer your questions as fast as we can.
 
 
+# Distributor Permissions System
+
+## Overview
+This project implements a **Distributor Permissions System** that determines if a distributor has permission to distribute in a given region. It processes region mappings, distributor permissions, and queries efficiently using structured data handling.
+
+## Folder Structure
+```
+project-root/
+│── main.go
+│── data/
+│   ├── cities.csv         # Region mappings (City, State, Country)
+│   ├── permissions.txt    # Distributor permissions
+│   ├── queries.txt        # Queries for permission checks
+│── pkg/
+│   ├── permissions/       # Handles distributor permissions
+│   │   ├── permissions.go
+│   ├── regions/           # Handles region mappings
+│   │   ├── regions.go
+│   ├── queries/           # Handles query processing
+│   │   ├── queries.go
+```
+
+## Installation & Usage
+### Prerequisites
+- Go 1.18 or later installed
+
+### Steps to Run
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-repo/distributor-permissions.git
+   cd distributor-permissions
+   ```
+2. Place the required CSV and text files inside the `data/` directory.
+3. Run the program:
+   ```sh
+   go run main.go
+   ```
+
+## Data Files
+### `cities.csv`
+Contains location mappings in the format:
+```
+ID, Name, Type, City, State, Country
+```
+Example:
+```
+1, New York, City, New York, NY, USA
+```
+
+### `permissions.txt`
+Defines permissions for distributors.
+```
+Permissions for Distributor1
+INCLUDE: New York-NY-USA
+EXCLUDE: NY-USA
+Permissions for Distributor2 < Distributor1
+```
+
+### `queries.txt`
+Contains queries in the format:
+```
+Can Distributor1 distribute in New York-NY-USA?
+```
+
+## Features
+- **Hierarchical Permissions**: Distributors can inherit permissions from parent distributors.
+- **Region Mapping**: Matches city, state, and country names efficiently.
+- **Query Processing**: Checks whether a distributor can operate in a given region.
+
+## License
+This project is licensed under the MIT License.
+
+## Author
+[Your Name]
+
+
+
+

@@ -112,7 +112,7 @@ Can Distributor1 distribute in New York-NY-USA?
 This project is licensed under the MIT License.
 
 ## Author
-[Your Name]
+Swaraj Chouriwar
 
 
 
